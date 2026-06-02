@@ -1,0 +1,126 @@
+ESTUN ERI SDK Repository License
+
+Copyright (c) 2026 Nanjing ESTUN Automation Co., Ltd.
+All rights reserved.
+
+1. Scope
+
+This repository contains proprietary SDK materials and separately licensed
+example code.
+
+Unless a file or directory expressly states otherwise:
+
+- the code under `examples/` is licensed under the MIT License in
+  `examples/LICENSE`;
+- all other ESTUN-authored files in this repository are proprietary to Nanjing
+  ESTUN Automation Co., Ltd. ("ESTUN");
+- official SDK release assets published by ESTUN for this repository are
+  proprietary to ESTUN, except for any third-party components identified in
+  `THIRD_PARTY_NOTICES.md` or in notices shipped with the release package,
+  which remain subject to their own license terms.
+
+2. Limited License for Proprietary SDK Materials
+
+Subject to applicable law and any separate written agreement with ESTUN, ESTUN
+grants you a limited, non-exclusive, non-transferable, non-sublicensable,
+revocable license to use the proprietary SDK materials obtained from this
+repository or from an official ESTUN release package solely for your internal
+evaluation, development, integration, testing, and operation with ESTUN
+products and systems.
+
+3. Limited Redistribution Right for Official SDK Materials
+
+Subject to the restrictions in this license and any separate written agreement
+with ESTUN, you may redistribute unmodified official ESTUN proprietary SDK
+materials, including official release packages and their unmodified component
+files, solely for integration, deployment, operation, maintenance, and support
+of applications or systems that interoperate with ESTUN products and systems,
+provided that:
+
+- you redistribute the proprietary SDK materials only in unmodified form and
+  only together with applications, systems, solution deliverables, project
+  handover materials, or internal/customer engineering packages related to
+  ESTUN-compatible deployments;
+- you do not modify, rename, or remove copyright, trademark, or proprietary
+  notices from the redistributed SDK materials;
+- you bind each recipient to terms no less protective of ESTUN than this
+  license with respect to the redistributed SDK materials;
+- you remain responsible for support, deployment, and compliance of your
+  application, system, or project delivery.
+
+4. Restrictions
+
+Except to the extent expressly permitted by applicable law or a separate
+written agreement with ESTUN, you may not:
+
+- redistribute, sublicense, sell, rent, lease, publish, or otherwise make the
+  proprietary SDK materials available to any third party, except as expressly
+  permitted under Section 3 for unmodified official SDK materials;
+- modify, adapt, translate, create derivative works from, or remove
+  proprietary notices from the proprietary SDK materials;
+- reverse engineer, decompile, disassemble, or otherwise attempt to derive
+  source code from binary SDK components, except to the limited extent required
+  by an applicable third-party license for a third-party component distributed
+  with an official ESTUN release package, including reverse engineering that
+  is necessary to debug modifications made by the recipient to an LGPL-covered
+  component;
+- use ESTUN trademarks, logos, or product names except as reasonably necessary
+  to identify compatibility.
+
+5. Example Code
+
+The code under `examples/` is licensed under the MIT License in
+`examples/LICENSE`. The MIT License applies only to files in that directory,
+unless another file expressly states otherwise. No trademark rights are granted
+under the MIT License.
+
+6. Third-Party Components
+
+Official ESTUN release packages may include third-party components that are
+subject to their own license terms. See `THIRD_PARTY_NOTICES.md` and the
+notices shipped with each release package. If there is a conflict between this
+file and a third-party license for a third-party component, the third-party
+license controls for that component only, and that component is excluded from
+the proprietary license scope described in Sections 1 through 4 to the extent
+required by its own license.
+
+7. Ownership
+
+The repository contents and official release assets are licensed, not sold.
+Except for the limited rights expressly granted above, ESTUN and its licensors
+reserve all right, title, and interest in and to the proprietary SDK
+materials.
+
+8. Disclaimer of Warranty
+
+THE PROPRIETARY SDK MATERIALS ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT
+WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, OR THAT USE OF THE MATERIALS WILL
+BE UNINTERRUPTED OR ERROR-FREE.
+
+9. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ESTUN AND ITS LICENSORS WILL
+NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY,
+OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF DATA, PROFITS, REVENUE, BUSINESS, OR
+GOODWILL, ARISING OUT OF OR RELATED TO THE USE OF THE PROPRIETARY SDK
+MATERIALS, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+10. Release Packaging Guidance
+
+Maintainers publishing official release archives for this repository should
+include, at a minimum:
+
+- this `LICENSE` file;
+- `THIRD_PARTY_NOTICES.md`;
+- any third-party license texts required by the release contents;
+- for any LGPL-covered component distributed in binary form, the corresponding
+  source code or a durable, clearly documented way for recipients to obtain the
+  exact corresponding source code from the same release channel.
+
+11. Contact
+
+For commercial licensing, redistribution approval, or other permissions,
+contact ESTUN through the official channels listed at:
+https://www.estun.com/
