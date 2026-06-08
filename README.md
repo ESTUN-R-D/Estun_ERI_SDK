@@ -1,5 +1,7 @@
 # ESTUN Robot Interface(ERI) 🤖
 
+[English](README.en.md) | 简体中文
+
 这是 **Estun Automation** 提供的机器人实时外部控制接口 ([ERI](https://www.estun.com/gnxrj/170.html)) 开发工具包，包含sdk以及使用样例。
 
 ## 📦 快速开始
@@ -67,6 +69,7 @@ sudo ./build/examples/04_STATUS_CALLBACK_demo/eri_status_callback_demo
 ### 6. 示例说明
 
 - `01_APOS_demo`: 关节实时控制示例，演示 PC 端通信参数配置、`getControlRobot`、`setERIMotionParam`、`movJ`、`startServo`、`servoToAPOS`、`releaseControlOverRobot`。
+- `02_CPOS_demo`: TCP 实时圆轨迹控制示例，演示 `movJ` 到起始位姿、`getWorldCpos` 读取当前 TCP 位姿、`startServo` 进入 CPOS 模式，以及 `servoToCPOS` 按周期发送笛卡尔目标点。
 - `03_GETDO_demo`: DO 读取示例，演示 `getCurrentDO` 的基本用法。
 - `04_STATUS_CALLBACK_demo`: 状态回调示例，演示 `setRobotStatusCallback` 注册方式，以及如何在主线程读取最新 `RobotStatus`。
 
