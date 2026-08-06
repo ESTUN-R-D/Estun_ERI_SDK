@@ -28,6 +28,25 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+static std::atomic<bool> g_latestIsEndPoint(false);
+static std::atomic<unsigned long long> g_statusSequence(0);
+
+static void onRobotStatus(RobotStatus robotStatus) {
+    g_latestIsEndPoint.store(robotStatus.isEndPoint);
+    g_statusSequence.fetch_add(1);
+}
+
+static void waitForEndpointReleaseReady(unsigned long long previousStatusSequence) {
+    while (true) {
+        // 只接受结束帧发送后的状态，避免用发送前遗留的停止状态提前释放控制权。
+        if (g_statusSequence.load() > previousStatusSequence &&
+            !g_latestIsEndPoint.load()) {
+            return;
+        }
+        Sleep(10);
+    }
+}
+
 // ------------------------ ERI 控制器实例 ------------------------
 static ERIParamManager& getEriManager() {
     // 延迟初始化，确保配置目录切换完成后再加载 SDK 依赖的配置文件。
@@ -138,12 +157,16 @@ void processRealtimeData() {
     }
 
     // ===== 发送最终点，标记为终点 =====
-    eriManager.servoToAPOS(timeStamp, target, true);
-    // 不要在发送终点后立刻尝试释放控制权，需要等待机器人实际结束运动。
+    if (eriManager.servoToAPOS(timeStamp, target, true) == -1) {
+        std::cerr << "终点发送失败，不释放机器人控制权。" << std::endl;
+        return;
+    }
+    const unsigned long long statusSequenceAfterEndFrame = g_statusSequence.load();
     std::cout << "已发送终点，等待机器人实际结束运动后再释放控制权。" << std::endl;
-    Sleep(5000);
 
     // ===== 等待机器人实际结束运动后，再释放机器人控制权 =====
+    waitForEndpointReleaseReady(statusSequenceAfterEndFrame);
+
     if (eriManager.releaseControlOverRobot())
         std::cout << "控制权释放成功。" << std::endl;
     else
@@ -168,6 +191,7 @@ int main() {
         std::cout << "PC端通信参数设置失败!" << std::endl;
         return -1;
     }
+    eriManager.setRobotStatusCallback(onRobotStatus);
     Sleep(50); // 保留短暂等待；连接成功以 SDK 三个通道的 connect success 日志为准。
 
     // 用户输入控制界面
