@@ -136,6 +136,7 @@ class ESTUNROBOTERI_API ERIParamManager
      * 实时关节运动
 	 * @timeStamp 时间戳
 	 * @pos 点位信息
+	 * [J1 ~ J6] （单位：deg）
 	 * @IsEndPoint 是否结束点
 	 * @return -1失败
      */
@@ -144,7 +145,9 @@ class ESTUNROBOTERI_API ERIParamManager
      * 实时笛卡尔运动
 	 * @timeStamp 时间戳
 	 * @pos 点位信息
-	 * [J1 ~ J6] （单位：deg）
+	 * [x, y, z, a, b, c]
+     *- x,y,z 是 mm
+     *- a,b,c 是 deg，并且语义是 ZYX 欧拉角
 	 * @IsEndPoint 是否结束点
 	 * @return -1失败
      */
@@ -155,7 +158,7 @@ class ESTUNROBOTERI_API ERIParamManager
 	 * @pos 点位信息 
 	 * [x, y, z, a, b, c]
      *- x,y,z 是 mm
-     *- a,b,c 是 deg，并且语义是 ZYX 欧拉角
+     *- a,b,c 是 deg，并且语义是 ZYX 固定角
 	 * @IsEndPoint 是否结束点
 	 * @return -1失败
      */
