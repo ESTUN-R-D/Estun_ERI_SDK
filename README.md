@@ -4,6 +4,13 @@
 
 这是 **Estun Automation** 提供的机器人实时外部控制接口 ([ERI](https://www.estun.com/gnxrj/170.html)) 开发工具包，包含sdk以及使用样例。
 
+## 面向 AI 编程
+
+使用 AI 进行 ERI SDK 集成、代码生成、调试或评审时，请先阅读
+[`docs/ERI_SDK_GUIDE.md`](docs/ERI_SDK_GUIDE.md) 并遵循仓库约束
+[`AGENTS.md`](AGENTS.md)。公开 API 签名和已记录的契约以
+[`include/ERIParamManager.h`](include/ERIParamManager.h) 为准。
+
 ## 📦 快速开始
 
 ### 1. 环境要求
@@ -70,10 +77,12 @@ sudo ./build/examples/04_STATUS_CALLBACK_demo/eri_status_callback_demo
 
 - `01_APOS_demo`: 关节实时控制示例，演示 PC 端通信参数配置、`getControlRobot`、`setERIMotionParam`、`movJ`、`startServo`、`servoToAPOS`、`releaseControlOverRobot`。
 - `02_CPOS_demo`: TCP 实时圆轨迹控制示例，演示 `movJ` 到起始位姿、`getWorldCpos` 读取当前 TCP 位姿、`startServo` 进入 CPOS 模式，以及 `servoToCPOS` 按周期发送笛卡尔目标点。
-- `03_GETDO_demo`: DO 读写示例，演示 `getCurrentDO` 和 `setDo`。写入前需获取机器人控制权；当前默认允许操作 DO12-DO32，修改区间需同步调整机器人底层配置文件。
+- `03_GETDO_demo`: DO 读写示例，演示 `getCurrentDO` 和 `setDo`。写入前需获取
+  机器人控制权；默认允许操作 DO12-DO32，修改区间需同步调整机器人底层配置文件。
 - `04_STATUS_CALLBACK_demo`: 状态回调示例，演示 `setRobotStatusCallback` 注册方式，以及如何在主线程读取最新 `RobotStatus`。
 
 > [!WARNING]
 > 运动示例中的点位仅用于展示接口调用流程。操作真实机器人前，请根据机器人型号、安装姿态、负载、工具坐标和现场安全边界重新确认点位。
 >
-> `03_GETDO_demo` 会写入物理 DO 输出。运行前请确认目标端口不会触发夹爪、吸盘或其他设备动作，并确认控制器的 DO 配置与示例允许区间一致。
+> `03_GETDO_demo` 会写入物理 DO 输出。运行前请确认目标端口不会触发
+> 夹爪、吸盘或其他设备动作，并确认控制器的 DO 配置与示例允许区间一致。
