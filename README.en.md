@@ -70,8 +70,10 @@ sudo ./build/examples/04_STATUS_CALLBACK_demo/eri_status_callback_demo
 
 - `01_APOS_demo`: Joint-space real-time control example showing PC-side communication setup, `getControlRobot`, `setERIMotionParam`, `movJ`, `startServo`, `servoToAPOS`, and `releaseControlOverRobot`.
 - `02_CPOS_demo`: TCP circular trajectory example showing `movJ` to the initial pose, `getWorldCpos` to read the current TCP pose, `startServo` in CPOS mode, and periodic Cartesian targets sent with `servoToCPOS`.
-- `03_GETDO_demo`: Digital output reading example showing the basic usage of `getCurrentDO`.
+- `03_GETDO_demo`: Digital output read/write example showing `getCurrentDO` and `setDo`. Acquire robot control before writing. The current default writable range is DO12-DO32; changing it also requires updating the robot's lower-level configuration.
 - `04_STATUS_CALLBACK_demo`: Status callback example showing how to register `setRobotStatusCallback` and read the latest `RobotStatus` in the main thread.
 
 > [!WARNING]
 > The motion waypoints in these examples are only for illustrating the API flow. Before operating a real robot, review and adjust them for the robot model, mounting posture, payload, tool coordinates, and on-site safety boundaries.
+>
+> `03_GETDO_demo` writes physical digital outputs. Before running it, confirm that the target port cannot trigger hazardous equipment movement, and that the controller's DO configuration matches the range allowed by the example.
